@@ -200,21 +200,7 @@ class TwitchPS extends EventEmitter {
    */
   _onBits(message){
     // TODO ADD VERSION CHECK/EMIT
-    this.emit('bits', {
-      "bits_used" : message.data.message.data.bits_used,
-      "channel_id" : message.data.message.data.channel_id,
-      "channel_name" : message.data.message.data.channel_name,
-      "chat_message" : message.data.message.data.chat_message,
-      "context" : message.data.message.data.context,
-      "message_id" : message.data.message.data.message_id,
-      "message_type" : message.data.message.data.message_type,
-      "time" : message.data.message.data.time,
-      "total_bits_used" : message.data.message.data.total_bits_used,
-      "user_id" : message.data.message.data.user_id,
-      "user_name" : message.data.message.data.user_name,
-      "version" : message.data.message.data.version
-    });
-
+    this.emit('bits', message.data.message.data);
   }
 
   /**
@@ -242,23 +228,7 @@ class TwitchPS extends EventEmitter {
    */
   _onSub(message){
     // TODO ADD VERSION CHECK/EMIT
-    this.emit('subscribe', {
-      "user_name" : message.data.message.user_name,
-      "display_name" : message.data.message.display_name,
-      "channel_name" : message.data.message.channel_name,
-      "user_id" : message.data.message.user_id,
-      "channel_id" : message.data.message.channel_id,
-      "time" : message.data.message.time,
-      "sub_plan" : message.data.message.sub_plan,
-      "sub_plan_name" : message.data.message.sub_plan_name,
-      "months" : message.data.message.months,
-      "context" : message.data.message.context,
-      "sub_message" : {
-        "message" : message.data.message.sub_message.message,
-        "emotes": message.data.message.sub_message.emotes
-      }
-    });
-
+    this.emit('subscribe', message.data.message);
   }
 
   /**
